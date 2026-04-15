@@ -1,0 +1,211 @@
+/* Variables */
+:root {
+  --main-color: #10cab7;
+  --main-font-size: 1.125rem;
+  --main-gap: 1.25rem;
+  --link-color: #007bff;
+  --secondary-background-color: #f6f6f6;
+  --text-line-height: 1.8;
+  --light-text-color: #777;
+  scroll-behavior: smooth;
+}
+/* Global Rules */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+*::before {
+  box-sizing: border-box;
+}
+*::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+body::-moz-selection {
+  background-color: var(--main-color);
+  color: black;
+}
+
+body::selection {
+  background-color: var(--main-color);
+  color: black;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+
+/* Small */
+@media (min-width: 48rem) {
+  .container {
+    width: 46.875rem;
+  }
+}
+
+/* Medium */
+@media (min-width: 62rem) {
+  .container {
+    width: 60.625rem;
+  }
+}
+
+/* Large */
+@media (min-width: 75rem) {
+  .container {
+    width: 73.125rem;
+  }
+}
+
+/* End Global Rules */
+
+/* Start Header */
+header {
+  padding: 1.25rem;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  width: 3.75rem;
+}
+
+header .links {
+  position: relative;
+}
+
+.fa-solid.fa-bars {
+  font-size: 1.5rem;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fa-solid.fa-bars:hover {
+  transform: rotate(90deg);
+  color: var(--main-color);
+}
+
+header .links ul {
+  list-style: none;
+  padding: 0;
+  background-color: var(--secondary-background-color);
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.9375rem);
+  min-width: 12.5rem;
+  display: none;
+  z-index: 1;
+}
+
+header .links:hover ul {
+  display: block;
+}
+
+header .links ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0.3125rem;
+  transform: translate(0, -100%);
+  border: 0.625rem solid transparent;
+  border-bottom-color: var(--secondary-background-color);
+}
+
+header .links ul a {
+  text-decoration: none;
+  display: block;
+  padding: 0.9375rem;
+  color: var(--link-color);
+  transition: 0.3s;
+}
+
+header .links ul li:not(:last-child) a {
+  border-bottom: 0.0625rem solid #ddd;
+}
+
+header .links ul a:hover {
+  padding-left: 1.875rem;
+  color: #0044ff;
+}
+/* End Header */
+
+/* Start Landing Section */
+.landing {
+  position: relative;
+  background-image: url("../assets/images/landing.jpg");
+  background-size: cover;
+  height: calc(100vh - 4.05rem);
+}
+
+.landing .intro-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 20rem;
+  /* So it doesn't go out of any container or screen */
+  max-width: 100%;
+}
+
+.landing .intro-text h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 3.125rem;
+  color: var(--main-color);
+  margin-bottom: 1.25rem;
+}
+
+.landing .intro-text p {
+  font-size: var(--main-font-size);
+  line-height: var(--text-line-height);
+}
+/* End Landing Section */
+
+/* Start features */
+.features {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+  background-color: var(--secondary-background-color);
+  min-height: 50vh;
+}
+
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  gap: var(--main-gap);
+}
+
+.features .container .feet {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: calc(var(--main-gap) + 0.625rem);
+  padding: var(--main-gap);
+}
+
+.features .container .feet i {
+  color: var(--main-color);
+}
+
+.features .container .feet h3 {
+  font-weight: 800;
+}
+
+.features .container .feet p {
+  color: var(--light-text-color);
+  font-size: 1.0625rem;
+  line-height: var(--text-line-height);
+}
+/* End features */

@@ -2,13 +2,13 @@
   --main-color: #10cab7;
   --secondary-color: #2c4755;
   --link-color: #007bff;
-  --secondary-background-color: #f6f6f6;
+  --section-background-color: #f6f6f6;
   --main-font-size: 1.125rem;
   --extra-bold-font-weight: 800;
   --text-line-height: 1.8;
   --light-text-color: #777;
   --section-padding: 3.75rem;
-  --main-gap: 1.25rem;
+  --gap: 1.875rem;
   --column-min-width: 18.75rem;
   scroll-behavior: smooth;
 }
@@ -81,10 +81,10 @@ body::selection {
   }
 }
 /* Feature Card */
-.feature-card > .feature-text {
+.feature-card .feature-text {
   color: var(--light-text-color);
-  margin-top: var(--main-gap);
-  margin-bottom: var(--main-gap);
+  margin-top: var(--gap);
+  margin-bottom: var(--gap);
   line-height: 1.6;
 }
 
@@ -116,7 +116,7 @@ header .links {
 header .links ul {
   list-style: none;
   padding: 0;
-  background-color: var(--secondary-background-color);
+  background-color: var(--section-background-color);
   position: absolute;
   right: 0;
   top: calc(100% + 0.9375rem);
@@ -139,7 +139,7 @@ header .links ul::before {
   transform: translate(0, -100%);
   /* Make up arrow */
   border: 0.625rem solid transparent;
-  border-bottom-color: var(--secondary-background-color);
+  border-bottom-color: var(--section-background-color);
 }
 header .links ul a {
   text-decoration: none;
@@ -192,14 +192,14 @@ header .links ul a:hover {
 .features {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
-  background-color: var(--secondary-background-color);
+  background-color: var(--section-background-color);
   min-height: 50vh;
 }
 .features .container {
   display: grid;
   /* So in small screens take one columns and more on bigger screens */
   grid-template-columns: repeat(auto-fit, minmax(var(--column-min-width), 1fr));
-  gap: var(--main-gap);
+  gap: var(--gap);
 }
 .features .container .feet {
   display: flex;
@@ -208,8 +208,8 @@ header .links ul a:hover {
   align-items: center;
   text-align: center;
   /* To look better */
-  gap: calc(var(--main-gap) + 0.625rem);
-  padding: var(--main-gap);
+  gap: calc(var(--gap));
+  padding: var(--gap);
 }
 .features .container .feet i {
   color: var(--main-color);
@@ -236,7 +236,7 @@ header .links ul a:hover {
 }
 .services .services-content .srv {
   display: flex;
-  padding: var(--main-gap);
+  padding: 1.25rem;
   gap: 1.625rem;
 }
 @media (max-width: 767px) {
@@ -276,9 +276,31 @@ header .links ul a:hover {
   background-color: var(--secondary-color);
   z-index: -1;
 }
-
 @media (max-width: 1199px) {
   .services .services-content .image {
     display: none;
   }
+}
+
+/** Portfolio */
+.portfolio {
+  background-color: var(--section-background-color);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.portfolio .portfolio-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--column-min-width), 1fr));
+  gap: var(--gap);
+  margin-top: var(--section-padding);
+}
+.portfolio .portfolio-content .col {
+  background-color: white;
+}
+.portfolio .portfolio-content .col img {
+  max-width: 100%;
+}
+.portfolio .portfolio-content .col .feature-card {
+  padding: 1.25rem;
+  padding-bottom: 0;
 }

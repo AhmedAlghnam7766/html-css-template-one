@@ -1,5 +1,6 @@
 :root {
   --main-color: #10cab7;
+  --secondary-color: #2c4755;
   --link-color: #007bff;
   --secondary-background-color: #f6f6f6;
   --main-font-size: 1.125rem;
@@ -8,9 +9,10 @@
   --light-text-color: #777;
   --section-padding: 3.75rem;
   --main-gap: 1.25rem;
+  --column-min-width: 18.75rem;
   scroll-behavior: smooth;
 }
-/* Global Rules */
+/** Global Rules */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -55,7 +57,7 @@ body::selection {
   }
 }
 
-/* Components */
+/** Components */
 /* Special Heading */
 .special-heading {
   color: #ebeced;
@@ -79,16 +81,14 @@ body::selection {
   }
 }
 /* Feature Card */
-.feature-card > .feature-title {
-  font-weight: var(--extra-bold-font-weight);
-}
 .feature-card > .feature-text {
   color: var(--light-text-color);
   margin-top: var(--main-gap);
   margin-bottom: var(--main-gap);
+  line-height: 1.6;
 }
 
-/* Header Section */
+/** Header Section */
 header {
   padding: 1.25rem;
 }
@@ -157,7 +157,7 @@ header .links ul a:hover {
   color: #0044ff;
 }
 
-/* Landing Section */
+/** Landing Section */
 .landing {
   position: relative;
   background-image: url("../assets/images/landing.jpg");
@@ -188,7 +188,7 @@ header .links ul a:hover {
   line-height: var(--text-line-height);
 }
 
-/* Feature Section */
+/** Feature Section */
 .features {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
@@ -198,7 +198,7 @@ header .links ul a:hover {
 .features .container {
   display: grid;
   /* So in small screens take one columns and more on bigger screens */
-  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--column-min-width), 1fr));
   gap: var(--main-gap);
 }
 .features .container .feet {
@@ -223,20 +223,62 @@ header .links ul a:hover {
   line-height: var(--text-line-height);
 }
 
-/* Services */
+/** Services */
 .services {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
 }
-
+.services .services-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--column-min-width), 1fr));
+  gap: 1.875rem;
+  margin-top: var(--section-padding);
+}
 .services .services-content .srv {
   display: flex;
   padding: var(--main-gap);
   gap: 1.625rem;
 }
-
+@media (max-width: 767px) {
+  .services .services-content .srv {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .services .services-content .srv i {
+    margin-bottom: 0.625rem;
+  }
+}
 .services .services-content .srv i {
   color: var(--main-color);
   /* To be aligned with service content */
   margin-top: 1rem;
+}
+.services .services-content img {
+  width: 16.25rem;
+}
+
+.services .services-content .image {
+  position: relative;
+  text-align: center;
+  /* Same image width */
+  width: 16.25rem;
+}
+/* Long rectangle after image */
+.services .services-content .image::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  height: calc(100% + 6.25rem);
+  width: 40%;
+  background-color: var(--secondary-color);
+  z-index: -1;
+}
+
+@media (max-width: 1199px) {
+  .services .services-content .image {
+    display: none;
+  }
 }

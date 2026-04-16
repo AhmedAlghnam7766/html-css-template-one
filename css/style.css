@@ -1,11 +1,13 @@
 :root {
   --main-color: #10cab7;
-  --main-font-size: 1.125rem;
-  --main-gap: 1.25rem;
   --link-color: #007bff;
   --secondary-background-color: #f6f6f6;
+  --main-font-size: 1.125rem;
+  --extra-bold-font-weight: 800;
   --text-line-height: 1.8;
   --light-text-color: #777;
+  --section-padding: 3.75rem;
+  --main-gap: 1.25rem;
   scroll-behavior: smooth;
 }
 /* Global Rules */
@@ -51,6 +53,39 @@ body::selection {
   .container {
     width: 1170px;
   }
+}
+
+/* Components */
+/* Special Heading */
+.special-heading {
+  color: #ebeced;
+  font-size: 6.25rem;
+  letter-spacing: -0.1875rem;
+  text-align: center;
+  margin: 0;
+}
+.special-heading + p {
+  text-align: center;
+  margin-top: -1.875rem;
+  font-size: var(--main-font-size);
+  color: var(--light-text-color);
+}
+@media (max-width: 767px) {
+  .special-heading {
+    font-size: 3.75rem;
+  }
+  .special-heading + p {
+    margin-top: -1rem;
+  }
+}
+/* Feature Card */
+.feature-card > .feature-title {
+  font-weight: var(--extra-bold-font-weight);
+}
+.feature-card > .feature-text {
+  color: var(--light-text-color);
+  margin-top: var(--main-gap);
+  margin-bottom: var(--main-gap);
 }
 
 /* Header Section */
@@ -155,8 +190,8 @@ header .links ul a:hover {
 
 /* Feature Section */
 .features {
-  padding-top: 3.75rem;
-  padding-bottom: 3.75rem;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
   background-color: var(--secondary-background-color);
   min-height: 50vh;
 }
@@ -180,10 +215,28 @@ header .links ul a:hover {
   color: var(--main-color);
 }
 .features .container .feet h3 {
-  font-weight: 800;
+  font-weight: var(--extra-bold-font-weight);
 }
 .features .container .feet p {
   color: var(--light-text-color);
   font-size: 1.0625rem;
   line-height: var(--text-line-height);
+}
+
+/* Services */
+.services {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.services .services-content .srv {
+  display: flex;
+  padding: var(--main-gap);
+  gap: 1.625rem;
+}
+
+.services .services-content .srv i {
+  color: var(--main-color);
+  /* To be aligned with service content */
+  margin-top: 1rem;
 }

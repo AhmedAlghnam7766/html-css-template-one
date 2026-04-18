@@ -304,3 +304,81 @@ header .links ul a:hover {
   padding: 1.25rem;
   padding-bottom: 0;
 }
+
+/** About */
+.about {
+  padding-top: var(--section-padding);
+  padding-bottom: calc(var(--section-padding) + 3.75rem);
+}
+.about .about-content {
+  margin-top: 6.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media (max-width: 991px) {
+  .about .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.about .about-content .image {
+  position: relative;
+  width: 15.625rem;
+  height: 23.4375rem;
+}
+@media (max-width: 991px) {
+  .about .about-content .image {
+    margin: 0 auto 3.75rem;
+  }
+}
+.about .about-content .image::before {
+  content: "";
+  position: absolute;
+  top: -2.5rem;
+  left: -1.25rem;
+  height: calc(100% + 5rem);
+  width: 40%;
+  background-color: #ebeced;
+  z-index: -1;
+}
+.about .about-content .image::after {
+  content: "";
+  box-sizing: content-box;
+  position: absolute;
+  right: -9.375rem;
+  top: -2.5rem;
+  width: 7.5rem;
+  height: 18.75rem;
+  border-left: 5rem solid var(--main-color);
+  border-bottom: 5rem solid var(--main-color);
+  z-index: -1;
+}
+@media (max-width: 991px) {
+  .about .about-content .image::before,
+  .about .about-content .image::after {
+    display: none;
+  }
+}
+.about .about-content img {
+  max-width: 100%;
+}
+.about .about-content .text {
+  flex-basis: calc(100% - 28.125rem);
+}
+.about .about-content .text p:first-of-type {
+  font-weight: bold;
+  line-height: 2;
+  margin-bottom: 3.125rem;
+}
+.about .about-content .text hr {
+  width: 50%;
+  display: inline-block;
+  border-color: var(--main-color);
+  margin: 0.5rem 0;
+}
+.about .about-content .text p:last-of-type {
+  line-height: 2;
+  color: var(--light-text-color);
+  margin: 1rem 0;
+}

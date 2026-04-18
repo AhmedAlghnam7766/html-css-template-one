@@ -12,7 +12,7 @@
   --column-min-width: 18.75rem;
   scroll-behavior: smooth;
 }
-/** Global Rules */
+/** Start Global Rules */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -40,6 +40,9 @@ body::selection {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
 }
+svg {
+  fill: currentColor;
+}
 /* Media queries */
 @media (min-width: 768px) {
   .container {
@@ -56,8 +59,9 @@ body::selection {
     width: 1170px;
   }
 }
+/** End Global Rules */
 
-/** Components */
+/** Start Components */
 /* Special Heading */
 .special-heading {
   color: #ebeced;
@@ -87,8 +91,9 @@ body::selection {
   margin-bottom: var(--gap);
   line-height: 1.6;
 }
+/** End Components */
 
-/** Header Section */
+/** Start Header Section */
 header {
   padding: 1.25rem;
 }
@@ -156,8 +161,9 @@ header .links ul a:hover {
   padding-left: 1.875rem;
   color: #0044ff;
 }
+/** Start Header Section */
 
-/** Landing Section */
+/** Start Landing Section */
 .landing {
   position: relative;
   background-image: url("../assets/images/landing.jpg");
@@ -187,8 +193,9 @@ header .links ul a:hover {
   font-size: var(--main-font-size);
   line-height: var(--text-line-height);
 }
+/** End Landing Section */
 
-/** Feature Section */
+/** Start Feature Section */
 .features {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
@@ -222,8 +229,9 @@ header .links ul a:hover {
   font-size: 1.0625rem;
   line-height: var(--text-line-height);
 }
+/** End Feature Section */
 
-/** Services */
+/** Start Services */
 .services {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
@@ -281,8 +289,9 @@ header .links ul a:hover {
     display: none;
   }
 }
+/** End Services */
 
-/** Portfolio */
+/** Start Portfolio */
 .portfolio {
   background-color: var(--section-background-color);
   padding-top: var(--section-padding);
@@ -304,8 +313,9 @@ header .links ul a:hover {
   padding: 1.25rem;
   padding-bottom: 0;
 }
+/** End Portfolio */
 
-/** About */
+/** Start About */
 .about {
   padding-top: var(--section-padding);
   padding-bottom: calc(var(--section-padding) + 3.75rem);
@@ -382,3 +392,48 @@ header .links ul a:hover {
   color: var(--light-text-color);
   margin: 1rem 0;
 }
+/** End About */
+
+/** Start Contact */
+.contact {
+  background-color: var(--section-background-color);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.contact .info {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  text-align: center;
+}
+.contact .info .label,
+.contact .info a {
+  font-size: 2.1875rem;
+  font-weight: var(--extra-bold-font-weight);
+}
+.contact .info .label {
+  color: var(--secondary-color);
+  letter-spacing: -0.125rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.contact .info a {
+  display: block;
+  color: var(--main-color);
+  text-decoration: none;
+}
+.contact .social {
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+  margin-top: 1rem;
+}
+.contact .social svg {
+  width: 1.125rem;
+}
+@media (max-width: 767px) {
+  .contact .info .label,
+  .contact .info a {
+    font-size: 1.5625rem;
+  }
+}
+/** End Contact */
